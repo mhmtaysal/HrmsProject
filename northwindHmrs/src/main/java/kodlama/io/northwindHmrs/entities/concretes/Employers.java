@@ -2,6 +2,7 @@ package kodlama.io.northwindHmrs.entities.concretes;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.PrimaryKeyJoinColumns;
 import javax.persistence.Table;
@@ -18,10 +19,17 @@ import lombok.NoArgsConstructor;
 @Table(name="employers")
 
 
-@PrimaryKeyJoinColumn(name="employersid")
-@EqualsAndHashCode(callSuper=true) // Sorulacak ?
+@EqualsAndHashCode(callSuper=false) // Sorulacak ?
 
 public class Employers extends Users{
+
+
+
+	@Id
+	@Column(name = "id")
+	@PrimaryKeyJoinColumn
+	private int id;
+	
 	@Column(name = "companyname")
 	private String compamyName;
 	
@@ -31,6 +39,14 @@ public class Employers extends Users{
 	    @Column(name = "phonenumber")
 
 	private String phoneNumber;
-	
-
+	    
+		public Employers(String email, String password, int id, String compamyName, String webAdress, String phoneNumber) {
+			super(email, password);
+			this.id = id;
+			this.compamyName = compamyName;
+			this.webAdress = webAdress;
+			this.phoneNumber = phoneNumber;
+		}
+	    
+	   
 }

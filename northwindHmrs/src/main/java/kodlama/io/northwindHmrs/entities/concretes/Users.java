@@ -36,5 +36,10 @@ public class Users {
 
 	    @Column(name="insert_date",columnDefinition = "Date default CURRENT_DATE")
 	    private Date insertDate;
+	    
+		public Users(String email, String password) {
+			this.email=email;
+			this.password=password;
+		}
 
 }

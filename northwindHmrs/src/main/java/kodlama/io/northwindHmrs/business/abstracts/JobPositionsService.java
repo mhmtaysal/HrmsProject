@@ -9,7 +9,8 @@ import kodlama.io.northwindHmrs.entities.concretes.JobPositions;
 
 public interface JobPositionsService {
 	public	List<JobPositions> getAll();
-	public	Result addJobPosition(JobPositions jobPositions);
 	public List<String> getAllEmail();
+	public	Result addJobPosition(JobPositions jobPositions);
+
 	
 }

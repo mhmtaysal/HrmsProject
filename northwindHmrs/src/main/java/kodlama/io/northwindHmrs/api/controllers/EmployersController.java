@@ -9,36 +9,38 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import kodlama.io.northwindHmrs.business.abstracts.UserService;
-import kodlama.io.northwindHmrs.core.utilities.results.DataResult;
+import kodlama.io.northwindHmrs.business.abstracts.EmployersService;
 import kodlama.io.northwindHmrs.core.utilities.results.Result;
 import kodlama.io.northwindHmrs.entities.concretes.Employers;
-import kodlama.io.northwindHmrs.entities.concretes.Users;
 
 @RestController
 @RequestMapping("/api/employers")
 public class EmployersController {
 	
-	private UserService userService;
+private EmployersService employersService;
+
 	
 	@Autowired
-	public EmployersController(UserService userService) {
+	public EmployersController(EmployersService employersService) {
 		super();
-		this.userService = userService;
+		this.employersService = employersService;
 	}
 	
+	
+
 	@GetMapping("/getall")
-	public DataResult<List<Users>> getAll(){
-		return this.userService.getAll();
+	public List<Employers> getAll(){
+		return this.employersService.getAll();
 	}
 	
 	
     @PostMapping("/add")
-    public Result add(@RequestBody Employers employer) {
-        return this.userService.addUsers(employer);
+    public Result add(@RequestBody Employers employers, String passwordAgain) {
+        return this.employersService.addEmplyers(employers,passwordAgain);
     }
-	
-	
+
+
+
 	
 	
 

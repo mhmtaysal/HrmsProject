@@ -9,30 +9,34 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import kodlama.io.northwindHmrs.business.abstracts.UserService;
+import kodlama.io.northwindHmrs.business.abstracts.EmployeesService;
 import kodlama.io.northwindHmrs.core.utilities.results.DataResult;
 import kodlama.io.northwindHmrs.core.utilities.results.Result;
+import kodlama.io.northwindHmrs.entities.concretes.Employees;
 import kodlama.io.northwindHmrs.entities.concretes.Users;
 
 @RestController
-@RequestMapping("api/users")
-public class UsersController {
+@RequestMapping("api/employees")
+public class EmployeesController {
 	
-private UserService userService;
+private EmployeesService employeesService;
+
 @Autowired
-public UsersController(UserService userService) {
+public EmployeesController(EmployeesService employeesService) {
 	super();
-	this.userService = userService;
+	this.employeesService = employeesService;
 }
 
 
 @GetMapping("/getall")
-public DataResult<List<Users>> getAll(){
-	return this.userService.getAll();
+public List<Employees> getAll(){
+	return this.employeesService.getAll();
 }
+
+
 @PostMapping("/register")
-public Result register(@RequestBody Users users) {
-	return this.userService.addUsers(users);
+public Result addEmployees(@RequestBody Employees employees) {
+	return this.employeesService.addEployees(employees);
 }
 
 

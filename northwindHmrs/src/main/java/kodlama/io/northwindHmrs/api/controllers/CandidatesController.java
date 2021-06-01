@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import kodlama.io.northwindHmrs.business.abstracts.UserService;
+import kodlama.io.northwindHmrs.business.abstracts.CandidatesService;
 import kodlama.io.northwindHmrs.core.utilities.results.DataResult;
 import kodlama.io.northwindHmrs.core.utilities.results.Result;
 import kodlama.io.northwindHmrs.entities.concretes.Candidates;
@@ -19,22 +19,24 @@ import kodlama.io.northwindHmrs.entities.concretes.Users;
 @RequestMapping("/api/candidates")
 public class CandidatesController {
 	
-	private UserService userService;
+	
+	private CandidatesService candidatesService;
     
 	@Autowired
-	public CandidatesController(UserService userService) {
+	public CandidatesController(CandidatesService candidatesService) {
 		super();
-		this.userService = userService;
+		this.candidatesService = candidatesService;
 	}
+
 	
 	@GetMapping("/getall")
-	public DataResult<List<Users>> getAll(){
-		return this.userService.getAll();
+	public List<Candidates> getAll(){
+		return this.candidatesService.getAll();
 	}
 	
 	@PostMapping("/add")
-    public Result add(@RequestBody Candidates candidate) {
-    	return this.userService.addUsers(candidate);
+    public Result addCandidates(@RequestBody Candidates candidates, String passwordAgain) {
+    	return this.candidatesService.addCandidates(candidates,passwordAgain);
     }
 	
 	
