@@ -1,5 +1,6 @@
 package kodlama.io.northwindHmrs.entities.concretes;
 
+
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -15,31 +16,28 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+
 @Data
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name="users")
+@Table(name = "users")
 @Inheritance(strategy = InheritanceType.JOINED)
-
 public class Users {
-		@Id
-	    @GeneratedValue(strategy = GenerationType.IDENTITY)
-	    @Column(name="id")
-	    private int id;
-
-	    @Column(name="email")
-	    private String email;
-
-	    @Column(name="password")
-	    private String password;
-
-	    @Column(name="insert_date",columnDefinition = "Date default CURRENT_DATE")
-	    private Date insertDate;
-	    
-		public Users(String email, String password) {
-			this.email=email;
-			this.password=password;
-		}
-
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="id")
+	private int id;
+	
+	@Column(name="email")
+	private String email;
+	
+	@Column(name="password")
+	private String password;
+	
+	@Column(name="insert_date")
+			//columnDefinition = "Date default CURRENT_DATE")
+	private Date insertDate;
+	
 }

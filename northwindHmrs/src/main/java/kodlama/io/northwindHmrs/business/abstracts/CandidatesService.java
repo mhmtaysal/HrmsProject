@@ -7,10 +7,10 @@ import kodlama.io.northwindHmrs.core.utilities.results.Result;
 import kodlama.io.northwindHmrs.entities.concretes.Candidates;
 
 public interface CandidatesService {
-public Result addCandidates(Candidates candidates,String passwordAgain);
-
-public List<Candidates> getAll();
-public List<String> getAllEmails();
-public List<String> getAllNationalityId();
+	
+	DataResult<List<Candidates>> getAll();
+	Result add(Candidates candidates);
+	Result isNationalityIdExist(String nationalityId);
+	Result isCandidatesEmailExist(String mail);
 
 }

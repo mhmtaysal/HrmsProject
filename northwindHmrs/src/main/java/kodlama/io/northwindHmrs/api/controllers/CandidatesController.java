@@ -13,30 +13,29 @@ import kodlama.io.northwindHmrs.business.abstracts.CandidatesService;
 import kodlama.io.northwindHmrs.core.utilities.results.DataResult;
 import kodlama.io.northwindHmrs.core.utilities.results.Result;
 import kodlama.io.northwindHmrs.entities.concretes.Candidates;
-import kodlama.io.northwindHmrs.entities.concretes.Users;
 
 @RestController
 @RequestMapping("/api/candidates")
+
 public class CandidatesController {
-	
+
 	
 	private CandidatesService candidatesService;
-    
+
 	@Autowired
 	public CandidatesController(CandidatesService candidatesService) {
 		super();
 		this.candidatesService = candidatesService;
 	}
-
 	
 	@GetMapping("/getall")
-	public List<Candidates> getAll(){
+	public DataResult<List<Candidates>> getAll(){
 		return this.candidatesService.getAll();
 	}
 	
 	@PostMapping("/add")
-    public Result addCandidates(@RequestBody Candidates candidates, String passwordAgain) {
-    	return this.candidatesService.addCandidates(candidates,passwordAgain);
+    public Result add(@RequestBody Candidates candidate) {
+    	return this.candidatesService.add(candidate);
     }
 	
 	

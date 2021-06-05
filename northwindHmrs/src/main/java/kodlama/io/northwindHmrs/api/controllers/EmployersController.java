@@ -10,38 +10,32 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import kodlama.io.northwindHmrs.business.abstracts.EmployersService;
+import kodlama.io.northwindHmrs.core.utilities.results.DataResult;
 import kodlama.io.northwindHmrs.core.utilities.results.Result;
 import kodlama.io.northwindHmrs.entities.concretes.Employers;
 
 @RestController
 @RequestMapping("/api/employers")
+
 public class EmployersController {
 	
-private EmployersService employersService;
 
-	
+	private EmployersService employersService;
+    
 	@Autowired
 	public EmployersController(EmployersService employersService) {
 		super();
 		this.employersService = employersService;
 	}
 	
-	
-
 	@GetMapping("/getall")
-	public List<Employers> getAll(){
+	public DataResult<List<Employers>> getAll(){
 		return this.employersService.getAll();
 	}
 	
-	
-    @PostMapping("/add")
-    public Result add(@RequestBody Employers employers, String passwordAgain) {
-        return this.employersService.addEmplyers(employers,passwordAgain);
+	@PostMapping("/add")
+    public Result add(@RequestBody Employers employers ) {
+    	return this.employersService.addEmployer(employers);
     }
-
-
-
-	
-	
 
 }

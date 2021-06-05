@@ -1,5 +1,6 @@
 package kodlama.io.northwindHmrs.entities.concretes;
 
+
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -13,15 +14,13 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
 @Data
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name="activation_codes")
 public class ActivationCode {
-
-
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
@@ -36,7 +35,8 @@ public class ActivationCode {
 	@Column(name = "is_confirmed")
 	private boolean isConfirmed;
 	
-	@Column(name = "confirm_date")
-	private Date confirmDate;
 	
+	@Column(name = "confirm_date",columnDefinition = "Date Default CURRENT_DATE")
+	
+	private Date confirmDate;
 }

@@ -1,8 +1,13 @@
 package kodlama.io.northwindHmrs.dataAccess.abstracts;
 
-import kodlama.io.northwindHmrs.entities.concretes.Candidates;
+import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-public interface CandidatesDao extends JpaRepository<Candidates, Integer> {
 
+import kodlama.io.northwindHmrs.entities.concretes.Candidates;
+
+public interface CandidatesDao extends JpaRepository<Candidates, Integer>{
+Candidates getByEmail(String email);
+List<Candidates> findByNationalIdentity (String nationalityId);
+List<Candidates> findByEmail(String mail);
 }
