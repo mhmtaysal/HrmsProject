@@ -32,7 +32,7 @@ public class EmployersManager implements EmployersService {
 	@Override
 	public Result addEmployer(Employers employer) {
 		return new SuccessDataResult<Employers>
-		(this.employersDao.save(employer),"Data Listelendi");
+		(this.employersDao.save(employer),"Data Kaydedildi");
 	}
 	
 	

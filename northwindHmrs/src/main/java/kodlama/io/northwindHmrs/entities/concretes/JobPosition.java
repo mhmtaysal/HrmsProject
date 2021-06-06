@@ -8,24 +8,25 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
+
 @Data
 @Entity
 @Table(name="job_positions")
-public class JobPositions {
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+@NoArgsConstructor
+
+
+public class JobPosition{
 	
-	
+	@Id //PrimaryKey
+	@GeneratedValue(strategy=GenerationType.IDENTITY) //AutoIncrement 
 	@Column(name="id")
 	private int id;
 	
 	@Column(name="title")
 	private String title;
 	
-	@Column(name="position")
-	private String position;
 	
 	
 	
-
 }
