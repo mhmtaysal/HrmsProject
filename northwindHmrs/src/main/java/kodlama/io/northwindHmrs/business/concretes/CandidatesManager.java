@@ -38,25 +38,31 @@ public class CandidatesManager implements CandidatesService {
 		return new SuccessDataResult<Candidates>(this.candidatesDao.save(candidates),"Kayıt Yapıldı");
 	}
 
+//	@Override
+//	public Result isNationalityIdExist(String nationalityId) {
+//
+//		if (candidatesDao.findByNationalIdentity(nationalityId).isEmpty()) {
+//			return new SuccessResult();
+//
+//		} else {
+//			return new ErrorResult("Bu Tc kimlik no ile kayıtlı kullanıcı var.");
+//		}
+//	}
+
+//	@Override
+//	public Result isCandidatesEmailExist(String mail) {
+//		if (candidatesDao.findByEmail(mail).isEmpty()) {
+//			return new SuccessResult();
+//
+//		} else {
+//			return new ErrorResult("Bu mail ile kayıtlı kullanıcı var.");
+//		}
+//	}
+
+
 	@Override
-	public Result isNationalityIdExist(String nationalityId) {
-
-		if (candidatesDao.findByNationalIdentity(nationalityId).isEmpty()) {
-			return new SuccessResult();
-
-		} else {
-			return new ErrorResult("Bu Tc kimlik no ile kayıtlı kullanıcı var.");
-		}
-	}
-
-	@Override
-	public Result isCandidatesEmailExist(String mail) {
-		if (candidatesDao.findByEmail(mail).isEmpty()) {
-			return new SuccessResult();
-
-		} else {
-			return new ErrorResult("Bu mail ile kayıtlı kullanıcı var.");
-		}
+	public DataResult<Candidates> getByNationalId(String nationalId) {
+		return new SuccessDataResult<Candidates>(this.candidatesDao.findByNationalIdentity(nationalId));
 	}
 
 

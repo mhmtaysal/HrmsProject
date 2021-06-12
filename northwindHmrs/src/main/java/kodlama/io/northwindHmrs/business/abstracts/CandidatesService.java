@@ -10,7 +10,8 @@ public interface CandidatesService {
 	
 	DataResult<List<Candidates>> getAll();
 	Result add(Candidates candidates);
-	Result isNationalityIdExist(String nationalityId);
-	Result isCandidatesEmailExist(String mail);
+//	Result isNationalityIdExist(String nationalityId);
+//	Result isCandidatesEmailExist(String mail);
+	DataResult<Candidates> getByNationalId(String nationalId);
 
 }

@@ -8,6 +8,6 @@ import kodlama.io.northwindHmrs.entities.concretes.Candidates;
 
 public interface CandidatesDao extends JpaRepository<Candidates, Integer>{
 Candidates getByEmail(String email);
-List<Candidates> findByNationalIdentity (String nationalityId);
+Candidates findByNationalIdentity (String nationalityId);
 List<Candidates> findByEmail(String mail);
 }
